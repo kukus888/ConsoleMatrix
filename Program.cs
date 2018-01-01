@@ -47,8 +47,16 @@ namespace Matrix
 					if ((vyskaKonzole != Console.LargestWindowHeight) || (sirkaKonzole != Console.LargestWindowWidth)) {//RESIZE
 						obrazovka = null;
 						obrazovka = new string[Console.LargestWindowWidth, Console.LargestWindowHeight];
-						vyskaKonzole = Console.LargestWindowHeight;
-						sirkaKonzole = Console.LargestWindowWidth;
+						string systemOS = Environment.OSVersion.ToString ();
+						if(systemOS.Contains("Windows")) {
+							vyskaKonzole = Console.LargestWindowHeight;
+							sirkaKonzole = Console.LargestWindowWidth;
+							Console.SetWindowSize(sirkaKonzole,vyskaKonzole);
+						}
+						if(systemOS.Contains("Unix")) {
+							vyskaKonzole = Console.LargestWindowHeight;
+							sirkaKonzole = Console.LargestWindowWidth;
+						}
 						maximumPlaces = ((obrazovka.GetLength (0) - 1) * (obrazovka.GetLength (1) - 1)) - ((obrazovka.GetLength (0) - 1) * (obrazovka.GetLength (1) - 1) / 2);
 						Console.Clear ();
 					}
@@ -96,8 +104,8 @@ namespace Matrix
 							obrazovka = new string[Console.LargestWindowWidth, Console.LargestWindowHeight];
 							string systemOS = Environment.OSVersion.ToString ();
 							if(systemOS.Contains("Windows")) {
-								vyskaKonzole = Console.LargestWindowHeight-1;
-								sirkaKonzole = Console.LargestWindowWidth-1;
+								vyskaKonzole = Console.LargestWindowHeight;
+								sirkaKonzole = Console.LargestWindowWidth;
 								Console.SetWindowSize(sirkaKonzole,vyskaKonzole);
 							}
 							if(systemOS.Contains("Unix")) {
