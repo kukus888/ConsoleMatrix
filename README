@@ -1,0 +1,10 @@
+* ConsoleMatrix
+is simple way to enjoy matrix. Just download EXE file and run!
+Possible arguments:
+troll >> Enables troll mode, none of the keys will function (only for this program!).
+
+Keys:
+R - Manually invokes resize function (may be buggy on windows)
++ - Decreases speed of steps
+- - Increses speed of steps (Maximum speed is about 1000 steps/ second)
+ESC - Exits program
