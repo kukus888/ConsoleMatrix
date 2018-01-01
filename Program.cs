@@ -18,6 +18,13 @@ namespace Matrix
 			Random rnd = new Random ();
 			int places = 0;
 			maximumPlaces = ((obrazovka.GetLength (0) - 1) * (obrazovka.GetLength (1) - 1)) - ((obrazovka.GetLength (0) - 1) * (obrazovka.GetLength (1) - 1) / 2);
+			bool trollMode = false;
+			try{
+				if (args [0] == "troll") {
+					trollMode = true;
+				}
+			} catch {
+			}
 			Console.Clear ();
 			try {
 				while (true) {
@@ -91,7 +98,7 @@ namespace Matrix
 							Console.Write (obrazovka [i, a]);
 						}
 					}
-					if (Console.KeyAvailable == true) {
+					if (Console.KeyAvailable == true && trollMode == false) {
 						ConsoleKeyInfo vstup = Console.ReadKey ();
 						if (vstup.Key == ConsoleKey.Subtract) {
 							spaciDoba = spaciDoba - 50;
